@@ -61,7 +61,7 @@ def get_conversation_ids(conversations):
       
       return conversations_ids
   
-def get_questions_and_answers(conversation_ids,id2line):
+def get_questions_and_answers(conversations_ids,id2line):
     # return unclean questions and answers
     # using the rule that every line that is responded to is a 'question'
     # and every line that is a response is the corresponding 'answer'
