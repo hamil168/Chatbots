@@ -59,7 +59,7 @@ def get_conversation_ids(conversations):
       # Append as list by spliting on commas
       conversations_ids.append(_conversation.split(","))
       
-      return conversation_ids
+      return conversations_ids
   
 def get_questions_and_answers(conversation_ids,id2line):
     # return unclean questions and answers
