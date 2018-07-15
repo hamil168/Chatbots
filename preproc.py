@@ -59,7 +59,7 @@ def get_conversation_ids(conversations):
       # Append as list by spliting on commas
       conversations_ids.append(_conversation.split(","))
       
-      return conversations_ids
+  return conversations_ids
   
 def get_questions_and_answers(conversations_ids,id2line):
     # return unclean questions and answers
@@ -260,4 +260,4 @@ def preproc_steps(lines, conversations):
           # keeps answer well aligned:
           sorted_clean_answers.append(answers_into_int[i[0]])
     
-    return sorted_clean_questions, sorted_clean_answers
+    return questions, answers, clean_questions, clean_answers, word2count, sorted_clean_questions, sorted_clean_answers
