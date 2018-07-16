@@ -4,6 +4,8 @@ _Exploring Chatbots_
 
 This repository may be a bit messy as it develops.
 
+Notebooks created with https://colab.research.google.com
+
 The goal of this project is three-fold:
 
 1) Build a chatbot on a Seq2Seq LSTM using TensorFlow and a publically available data set **_(CURRENT)_**
