@@ -113,7 +113,7 @@ def clean_text(text):
 
 
 def word_to_counts(clean_questions, clean_answers):
-# Creating a dictionary that maps each word to its number of occurrences
+# Creating a function that tallies the count of each unique words
     word2count = {}
     for question in clean_questions:
       for word in question.split():
@@ -122,7 +122,6 @@ def word_to_counts(clean_questions, clean_answers):
         else:
           word2count[word] += 1
 
-# This double counts some entries... this may be OK. come back to think on it later.
     for answer in clean_answers:
       for word in answer.split():
         if word not in word2count:
