@@ -2,9 +2,11 @@
 
 _Exploring Chatbots_
 
-This repository may be a bit messy as it develops.
+This repository ~~may~~ will be a bit messy as it develops.
 
 Notebooks created with https://colab.research.google.com
+  - it's pretty cool! Super convenient
+  - had trouble on another project getting nltk stopwords, though
 
 The goal of this project is three-fold:
 
@@ -15,13 +17,36 @@ The goal of this project is three-fold:
 ## Part 1: Seq2Seq LSTM Chatbot
 - **Data:** Conversations Cornell Movie Dialogs Corpus (CMD)
 - https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html
-- Based on a tutorial from www.superdatascience.com (I also recommend their podcast)
+- Based on a tutorial from www.superdatascience.com (I recommend their podcast)
+  - also a number of github repos, many of which were based on other, similar Resources
+  - also notes from Ng's Deep Learning specialization on Coursera
+  - all of those chatbots were done on TF 1.0 through 1.4 at the newest
+  - this chatbot is in TF 1.9, which had some nice new wrappers
 
-The CMD data has >220,000 exchanges between >10,000 pairs of characters and 617 movies. 
+The CMD data has >220,000 exchanges between >10,000 pairs of characters and 617 movies.
 
 This data will be cleaned and transformed into 'call-response' pairs that will serve as training inputs and outputs in the model.
 - Assume a conversation between A and B has sets of phrases Ax and Bx from the movie transcriptions.
   - A conversation phrase sequence abbreviated as A1 B1 A2 B2 A3 A4 B3 will be transformed to (A1 B1) (B1 A2) (A2 B2) (B2 A3) (A4 B3)
 - Speaker and responder identities are not preserved.
 
-(in development)
+***(in development!)***
+
+**Pt. 1 Status**
+- Architecture uses 1-way LSTM with Bahdanau attention
+  - 25 word inputs and outputs
+  - encoders trained as part of the model
+- TF 1.9 architecture has been debugged. The algorithms officially train the model
+  - Using small hyperparameters and partial training data for agility
+  - Has not been error-analyzed and validated yet
+- To-Be-Deployed for testing.
+- TODO:
+  - Implement save trained models
+  - Render deployable for testing, test!
+  - Do an initial validation of model before moving to more complicated models
+- SOMEDAYs:
+  - Explore LSTM hyperparamter Search
+  - Explore using BiLSTMs
+  - Explore using BeamSearch
+  - Explore other encoders, etc.
+  - Explore other preprocessing
