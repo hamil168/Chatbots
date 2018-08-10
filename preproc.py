@@ -256,7 +256,10 @@ def preproc_steps(lines, conversations):
         if len(i[1]) == length:
           sorted_clean_questions.append(questions_into_int[i[0]])
 
-          # keeps answer well aligned:
-          sorted_clean_answers.append(answers_into_int[i[0]])
+        # keeps answer well aligned:
+        # snips answer length at 25, else goes to 500+ and OOM's the lstm train
+        current_answer = answers_into_int[i[0]]
+        answer_len = min(MAX_SENTENCE_LENGTH, len(current_answer))
+        sorted_clean_answers.append(current_answer[0:answer_len])
 
     return id2line, conversations_ids, questions, answers, clean_questions, clean_answers, word2count, sorted_clean_questions, sorted_clean_answers
