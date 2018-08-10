@@ -254,12 +254,12 @@ def preproc_steps(lines, conversations):
         # if length of current question is equal to length we are checking...
         # append it to the sorted list by catching via the enumerated index
         if len(i[1]) == length:
-          sorted_clean_questions.append(questions_into_int[i[0]])
+            sorted_clean_questions.append(questions_into_int[i[0]])
 
-        # keeps answer well aligned:
-        # snips answer length at 25, else goes to 500+ and OOM's the lstm train
-        current_answer = answers_into_int[i[0]]
-        answer_len = min(MAX_SENTENCE_LENGTH, len(current_answer))
-        sorted_clean_answers.append(current_answer[0:answer_len])
+            # snips answer length at 25, else goes to 500+ and OOM's the lstm train
+            # keeps answer well aligned and truncated:
+            curr_answer = answers_into_int[i[0]]
+            trunc_answer = curr_answer[0:min(len(curr_answer), MAX_SENTENCE_LENGTH)]
+            sorted_clean_answers.append(trunc_answer)
 
     return id2line, conversations_ids, questions, answers, clean_questions, clean_answers, word2count, sorted_clean_questions, sorted_clean_answers
