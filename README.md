@@ -37,11 +37,14 @@ This data will be cleaned and transformed into 'call-response' pairs that will s
   - 25 word inputs and outputs
   - encoders trained as part of the model
 - TF 1.9 architecture has been debugged. The algorithms officially train the model
-  - Using small hyperparameters and partial training data for agility
+  - Using small hyperparameters and partial training data for agility (in process)
+    - oom error | answer lengths not truncated (fixed)
+    - increased training set, rnn size, layers, batch size
   - Has not been error-analyzed and validated yet
+    - WIP: training larger models
 - To-Be-Deployed for testing.
 - TODO:
-  - Implement save trained models
+  - Implement save trained models (done)
   - Render deployable for testing, test!
   - Do an initial validation of model before moving to more complicated models
 - SOMEDAYs:
