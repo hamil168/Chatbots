@@ -269,8 +269,8 @@ def preproc_steps(lines, conversations):
 
       # use enumerate to loop 2 elements: index of question and question as list of ints
       for i in enumerate(questions_into_int):
-        if i[0] in range(0,10):
-            print(i)
+        #if i[0] in range(0,10):
+            #print(i)
         # if length of current question is equal to length we are checking...
         # append it to the sorted list by catching via the enumerated index
         if len(i[1]) == length:
