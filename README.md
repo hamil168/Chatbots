@@ -5,8 +5,6 @@ _Exploring Chatbots_
 This repository ~~may~~ will be a bit messy as it develops.
 
 Notebooks created with https://colab.research.google.com
-  - it's pretty cool! Super convenient
-  - had trouble on another project getting nltk stopwords, though
 
 The goal of this project is three-fold:
 
@@ -21,7 +19,7 @@ The goal of this project is three-fold:
   - also a number of github repos, many of which were based on other, similar Resources
   - also notes from Ng's Deep Learning specialization on Coursera
   - all of those chatbots were done on TF 1.0 through 1.4 at the newest
-  - this chatbot is in TF 1.9, which had some nice new wrappers
+  - this chatbot is in TF 1.9/1.10, which had some nice new wrappers
 
 The CMD data has >220,000 exchanges between >10,000 pairs of characters and 617 movies.
 
@@ -45,11 +43,30 @@ This data will be cleaned and transformed into 'call-response' pairs that will s
 - To-Be-Deployed for testing.
 - TODO:
   - Implement save trained models (done)
+  - Implement load from saved (done)
+  - Implement timer
   - Render deployable for testing, test!
+    - hacked solution done, needs additional work
   - Do an initial validation of model before moving to more complicated models
 - SOMEDAYs:
   - Explore LSTM hyperparamter Search
+  - Regularization (currently dropout 0.5)
   - Explore using BiLSTMs
   - Explore using BeamSearch
   - Explore other encoders, etc.
   - Explore other preprocessing
+  - Learn more about buckets (done the right way)
+
+  ### References:
+  __Blogs__
+  - http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+  - http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/
+  - https://github.com/DongjunLee/conversation-tensorflow
+  - https://github.com/hb-research/notes/blob/master/notes/neural_text_generation.md
+  - https://adeshpande3.github.io/How-I-Used-Deep-Learning-to-Train-a-Chatbot-to-Talk-Like-Me
+    - includes links to many papers
+  - https://towardsdatascience.com/personality-for-your-chatbot-with-recurrent-neural-networks-2038f7f34636
+  __Papers__
+  - "Neural Conversation Models" https://arxiv.org/abs/1506.05869
+  __TensorFlow__
+  - https://www.tensorflow.org/tutorials/
