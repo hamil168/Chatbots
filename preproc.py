@@ -77,7 +77,7 @@ def get_questions_and_answers(conversations_ids,id2line):
         questions.append(id2line[conversation[i]])
         answers.append(id2line[conversation[i+1]])
 
-    return questions, answers
+    return questionswords2int, answerswords2int, tokens
 
 
 # first cleaning of the texts
@@ -165,7 +165,7 @@ def map_questions_and_answers_to_integers(word2count):
       questionswords2int[token] = len(questionswords2int) + 1
       answerswords2int[token] = len(answerswords2int) + 1
 
-    return questionswords2int, answerswords2int
+    return questionswords2int, answerswords2int, tokens
 
 #############################################################
 
@@ -181,25 +181,25 @@ def word_into_int(cleaned_text, word_dict):
     # turn a single cleaned text string into a list of
     # corresponding numbers
     word_into_ints_array = []
-    
+
     for line in cleaned_text:
         ints = []
-    
+
         for word in line.split():
             if word in word_dict:
                 ints.append(word_dict[word])
             else:
                 ints.append(word_dict['<OUT>'])
-                
+
         word_into_ints_array.append(ints)
-        
+
     return word_into_ints_array
 
 #############################################################
 
 
 def preproc_steps(lines, conversations):
-    
+
     id2line = id_to_line(lines)
 
     conversations_ids = get_conversations_ids(conversations)
@@ -211,13 +211,13 @@ def preproc_steps(lines, conversations):
 
     word2count = word_to_counts(clean_questions, clean_answers)
 
-    questionswords2int, answerswords2int = map_questions_and_answers_to_integers(word2count)
+    questionswords2int, answerswords2int, tokens = map_questions_and_answers_to_integers(word2count)
 
     answersints2words = map_invert_answers_to_ints(answerswords2int)
 
     # Conccatenate <EOS> to every cleaned answer
-    # needed for seq2seq model 
-    
+    # needed for seq2seq model
+
     for i in range(len(clean_answers)):
       clean_answers[i] += ' <EOS>'
 
@@ -227,7 +227,7 @@ def preproc_steps(lines, conversations):
     questions_into_int = word_into_int(clean_questions, questionswords2int)
 
     answers_into_int = word_into_int(clean_answers, questionswords2int)
-      
+
     """for question in clean_questions:
       ints = []
 
