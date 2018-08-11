@@ -77,7 +77,7 @@ def get_questions_and_answers(conversations_ids,id2line):
         questions.append(id2line[conversation[i]])
         answers.append(id2line[conversation[i+1]])
 
-    return questionswords2int, answerswords2int, tokens
+    return questions, answers
 
 
 # first cleaning of the texts
