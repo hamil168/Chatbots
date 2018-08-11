@@ -177,9 +177,29 @@ def map_invert_answers_to_ints(answerswords2int):
 
 #############################################################
 
+def word_into_int(cleaned_text, word_dict):
+    # turn a single cleaned text string into a list of
+    # corresponding numbers
+    word_into_ints_array = []
+    
+    for line in cleaned_text:
+        ints = []
+    
+        for word in line.split():
+            if word in word_dict:
+                ints.append(word_dict[word])
+            else:
+                ints.append(word_dict['<OUT>'])
+                
+        word_into_ints_array.append(ints)
+        
+    return word_into_ints_array
+
+#############################################################
+
 
 def preproc_steps(lines, conversations):
-
+    
     id2line = id_to_line(lines)
 
     conversations_ids = get_conversations_ids(conversations)
@@ -196,17 +216,19 @@ def preproc_steps(lines, conversations):
     answersints2words = map_invert_answers_to_ints(answerswords2int)
 
     # Conccatenate <EOS> to every cleaned answer
-    # needed for seq2seq model
-
+    # needed for seq2seq model 
+    
     for i in range(len(clean_answers)):
       clean_answers[i] += ' <EOS>'
 
     # Translating cleaned questions into integers using
     # replace alal words filtered out by token with <OUT>
 
-    questions_into_int = []
+    questions_into_int = word_into_int(clean_questions, questionswords2int)
 
-    for question in clean_questions:
+    answers_into_int = word_into_int(clean_answers, questionswords2int)
+      
+    """for question in clean_questions:
       ints = []
 
       # translate question into integers
@@ -231,10 +253,7 @@ def preproc_steps(lines, conversations):
         if word in answerswords2int:
           ints.append(answerswords2int[word])
         else:
-          ints.append(answerswords2int['<OUT>'])
-
-
-      answers_into_int.append(ints)
+          ints.append(answerswords2int['<OUT>'])"""
 
     # Sort questions by length of questions to speed up training
     # Reduces amount of padding during training
@@ -250,11 +269,12 @@ def preproc_steps(lines, conversations):
 
       # use enumerate to loop 2 elements: index of question and question as list of ints
       for i in enumerate(questions_into_int):
-
+        if i[0] in range(0,10):
+            print(i)
         # if length of current question is equal to length we are checking...
         # append it to the sorted list by catching via the enumerated index
         if len(i[1]) == length:
-            sorted_clean_questions.append(questions_into_int[i[0]])
+            sorted_clean_questions.append(questions_into_int)#[i[0]])
 
             # snips answer length at 25, else goes to 500+ and OOM's the lstm train
             # keeps answer well aligned and truncated:
