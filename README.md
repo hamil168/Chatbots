@@ -56,17 +56,23 @@ This data will be cleaned and transformed into 'call-response' pairs that will s
   - Explore other encoders, etc.
   - Explore other preprocessing
   - Learn more about buckets (done the right way)
-
+  - queues and input optimizations
+  
   ### References:
   __Blogs__
   - http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+  - http://suriyadeepan.github.io/2016-06-28-easy-seq2seq/
+    - many good links
   - http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/
   - https://github.com/DongjunLee/conversation-tensorflow
   - https://github.com/hb-research/notes/blob/master/notes/neural_text_generation.md
   - https://adeshpande3.github.io/How-I-Used-Deep-Learning-to-Train-a-Chatbot-to-Talk-Like-Me
+  - https://chatbotsmagazine.com/contextual-chat-bots-with-tensorflow-4391749d0077
     - includes links to many papers
   - https://towardsdatascience.com/personality-for-your-chatbot-with-recurrent-neural-networks-2038f7f34636
   __Papers__
   - "Neural Conversation Models" https://arxiv.org/abs/1506.05869
   __TensorFlow__
   - https://www.tensorflow.org/tutorials/
+  - https://github.com/chiphuyen/stanford-tensorflow-tutorials
+  - https://github.com/tensorflow/nmt
