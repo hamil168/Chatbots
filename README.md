@@ -5,6 +5,8 @@ _Exploring Chatbots_
 This repository ~~may~~ will be a bit messy as it develops.
 
 Notebooks created with https://colab.research.google.com
+Training performed on Colab, locally on my GTX 970 or (soon!) JBCurtain's JP Machine
+
 
 The goal of this project is three-fold:
 
@@ -34,7 +36,7 @@ This data will be cleaned and transformed into 'call-response' pairs that will s
 - Architecture uses 1-way LSTM with Bahdanau attention
   - 25 word inputs and outputs
   - encoders trained as part of the model
-- TF 1.9 architecture has been debugged. The algorithms officially train the model
+- TF 1.9/1.10 architecture has been debugged. The algorithms officially train the model
   - Using small hyperparameters and partial training data for agility (in process)
     - oom error | answer lengths not truncated (fixed)
     - increased training set, rnn size, layers, batch size
@@ -45,7 +47,7 @@ This data will be cleaned and transformed into 'call-response' pairs that will s
   - Implement save trained models (done)
   - Implement load from saved (done)
   - Implement timer
-  - Render deployable for testing, test!
+  - Render deployable for testing, test
     - hacked solution done, needs additional work
   - Do an initial validation of model before moving to more complicated models
 - SOMEDAYs:
@@ -57,7 +59,7 @@ This data will be cleaned and transformed into 'call-response' pairs that will s
   - Explore other preprocessing
   - Learn more about buckets (done the right way)
   - queues and input optimizations
-  
+
   ### References:
   __Blogs__
   - http://karpathy.github.io/2015/05/21/rnn-effectiveness/
