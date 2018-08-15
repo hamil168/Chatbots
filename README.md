@@ -5,8 +5,7 @@ _Exploring Chatbots_
 This repository ~~may~~ will be a bit messy as it develops.
 
 Notebooks created with https://colab.research.google.com
-Training performed on Colab, locally on my GTX 970 or (soon!) JBCurtain's JP Machine
-
+Training performed on Colab, locally on my GTX 970
 
 The goal of this project is three-fold:
 
